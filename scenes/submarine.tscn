@@ -15,7 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://chvi7vvsio106" path="res://assets/sub_death8.png" id="9_lqqjl"]
 [ext_resource type="Texture2D" uid="uid://bykyyx2721scy" path="res://assets/sub_death9.png" id="10_f5qfj"]
 [ext_resource type="Texture2D" uid="uid://roce5okm6oql" path="res://assets/sub_death10.png" id="11_jy1d6"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://dwqd1golm0l5s" path="res://assets/sounds/o.mp3" id="16_xqhar"]
+=======
+[ext_resource type="AudioStream" uid="uid://c0ktghcuv3r5t" path="res://assets/sounds/beep.mp3" id="16_ciwmo"]
+>>>>>>> 499fa92689420b63ccf6800aba7e8e031204e566
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gr6h1"]
 animations = [{
@@ -127,8 +131,14 @@ collision_mask = 2
 scale = Vector2(25, 25)
 shape = SubResource("CircleShape2D_2bsgv")
 
+<<<<<<< HEAD
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_xqhar")
+=======
+[node name="MinePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ciwmo")
+volume_db = 1.0
+>>>>>>> 499fa92689420b63ccf6800aba7e8e031204e566
 
 [connection signal="area_entered" from="ShipBody" to="." method="_mine_collision"]
 [connection signal="area_entered" from="MineDetector" to="." method="_on_area_2d_area_entered"]
