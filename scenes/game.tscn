@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://vpviplnr5rjt"]
+[gd_scene load_steps=10 format=3 uid="uid://vpviplnr5rjt"]
 
 [ext_resource type="Texture2D" uid="uid://c83x22bx7vvti" path="res://assets/water.png" id="1_48axx"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_nyqwd"]
 [ext_resource type="PackedScene" uid="uid://enkvtyv512t" path="res://scenes/mine.tscn" id="2_5ni10"]
 [ext_resource type="PackedScene" uid="uid://dgcpspdc4t04p" path="res://scenes/submarine.tscn" id="3_6ot8u"]
 [ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_c1hwd"]
@@ -1041,6 +1042,7 @@ sources/0 = SubResource("TileSetAtlasSource_ab8ta")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qkcv7"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_nyqwd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lttmm")
@@ -1108,4 +1110,5 @@ script = ExtResource("4_n0dgy")
 MinePrefab = ExtResource("2_5ni10")
 SpawnBoundsMin = Vector2(10, 0)
 SpawnBoundsMax = Vector2(1000, 800)
-MinesToSpawn = 300
+MinesToSpawn = 10
+MinDistanceBetween = 50.0
