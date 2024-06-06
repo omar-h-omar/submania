@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://enkvtyv512t"]
+[gd_scene load_steps=2 format=3 uid="uid://enkvtyv512t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0418p"]
 
 [node name="Mine" type="Node2D"]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_0418p")
