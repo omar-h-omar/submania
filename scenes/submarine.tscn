@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgcpspdc4t04p"]
+[gd_scene load_steps=22 format=3 uid="uid://dgcpspdc4t04p"]
 
 [ext_resource type="Script" path="res://scenes/submarine.gd" id="1_q8pyt"]
 [ext_resource type="Texture2D" uid="uid://c81x22cfhwcfw" path="res://assets/sub_uw.png" id="2_7us01"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://chvi7vvsio106" path="res://assets/sub_death8.png" id="9_lqqjl"]
 [ext_resource type="Texture2D" uid="uid://bykyyx2721scy" path="res://assets/sub_death9.png" id="10_f5qfj"]
 [ext_resource type="Texture2D" uid="uid://roce5okm6oql" path="res://assets/sub_death10.png" id="11_jy1d6"]
+[ext_resource type="AudioStream" uid="uid://c0ktghcuv3r5t" path="res://assets/sounds/beep.mp3" id="16_ciwmo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gr6h1"]
 animations = [{
@@ -125,6 +126,10 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MineDetector"]
 scale = Vector2(25, 25)
 shape = SubResource("CircleShape2D_2bsgv")
+
+[node name="MinePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ciwmo")
+volume_db = 1.0
 
 [connection signal="area_entered" from="ShipBody" to="." method="_mine_collision"]
 [connection signal="area_entered" from="MineDetector" to="." method="_on_area_2d_area_entered"]
