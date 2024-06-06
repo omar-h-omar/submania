@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vpviplnr5rjt"]
 
 [ext_resource type="Texture2D" uid="uid://c83x22bx7vvti" path="res://assets/water.png" id="1_48axx"]
-[ext_resource type="PackedScene" uid="uid://enkvtyv512t" path="res://scenes/mine.tscn" id="2_5ni10"]
+[ext_resource type="PackedScene" path="res://scenes/mine.tscn" id="2_5ni10"]
 [ext_resource type="PackedScene" uid="uid://dgcpspdc4t04p" path="res://scenes/submarine.tscn" id="3_6ot8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab8ta"]
