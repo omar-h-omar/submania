@@ -2,13 +2,15 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0418p"]
 
-[node name="Mine" type="Node2D"]
+[node name="Mine" type="Node2D" groups=["mines"]]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6, 0)
+gizmo_extents = 82.1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MineCollider" type="Area2D" parent="."]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(10, 10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineCollider"]
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_0418p")
