@@ -22,10 +22,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-func _mine_detected(body):
-	print("Mine Nearby!")
-	pass # Replace with function body.
 	
 func on_level_start():
 	pass
@@ -35,6 +31,7 @@ func on_level_start():
 		#mine.
 
 
+# Mine Detector
 func _on_area_2d_area_entered(area):
 	# Mine area
 	_nearMineCount += 1
@@ -45,3 +42,8 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
 	_nearMineCount -= 1
 	mines_nearby_label.text = str(_nearMineCount)
+
+# Mine Collision
+func _mine_collision(body):
+	%GameOverOverlay.visible = true
+	LevelManager.gameover()

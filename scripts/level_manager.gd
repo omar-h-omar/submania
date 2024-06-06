@@ -1,7 +1,8 @@
 extends Node
 
 var current_scene = null
-# Called when the node enters the scene tree for the first time.
+var allow_restart = false
+
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -13,4 +14,12 @@ func next_level():
 	current_scene = nextLevel.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+	
+func gameover():
+	allow_restart = true
+	
+func _physics_process(delta):
+	if Input.is_action_just_pressed("restart") && allow_restart:
+		allow_restart = false
+		next_level()
 

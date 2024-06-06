@@ -1,12 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://enkvtyv512t"]
+[gd_scene load_steps=2 format=3 uid="uid://q4qv4npf3jry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0418p"]
 
 [node name="Mine" type="Node2D" groups=["mines"]]
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(6, 0)
-gizmo_extents = 82.1
 
 [node name="MineCollider" type="Area2D" parent="."]
 collision_layer = 2

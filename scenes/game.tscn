@@ -1,11 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://vpviplnr5rjt"]
+[gd_scene load_steps=12 format=3 uid="uid://vpviplnr5rjt"]
 
 [ext_resource type="Texture2D" uid="uid://c83x22bx7vvti" path="res://assets/water.png" id="1_48axx"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_nyqwd"]
-[ext_resource type="PackedScene" uid="uid://enkvtyv512t" path="res://scenes/mine.tscn" id="2_5ni10"]
+[ext_resource type="PackedScene" uid="uid://q4qv4npf3jry" path="res://scenes/mine.tscn" id="2_5ni10"]
 [ext_resource type="PackedScene" uid="uid://dgcpspdc4t04p" path="res://scenes/submarine.tscn" id="3_6ot8u"]
-[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_c1hwd"]
+[ext_resource type="PackedScene" uid="uid://dgim8u3m1mtf7" path="res://scenes/goal.tscn" id="4_c1hwd"]
 [ext_resource type="Script" path="res://scenes/MinePlacer.gd" id="4_n0dgy"]
+
+[sub_resource type="GDScript" id="GDScript_ka5po"]
+script/source = "extends Node2D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed(\"restart\"):
+		get_tree().reload_current_scene()
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab8ta"]
 texture = ExtResource("1_48axx")
@@ -1041,8 +1049,14 @@ sources/0 = SubResource("TileSetAtlasSource_ab8ta")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qkcv7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fusaf"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_frvln"]
+font_size = 32
+
 [node name="Game" type="Node2D"]
-script = ExtResource("1_nyqwd")
+script = SubResource("GDScript_ka5po")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lttmm")
@@ -1112,3 +1126,46 @@ SpawnBoundsMin = Vector2(10, 0)
 SpawnBoundsMax = Vector2(1000, 700)
 MinesToSpawn = 30
 MinDistanceBetween = 50.0
+
+[node name="GameOverOverlay" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -130.0
+offset_right = 1025.0
+offset_bottom = 908.0
+
+[node name="Panel" type="Panel" parent="GameOverOverlay"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="GameOverOverlay/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -29.0
+offset_right = 128.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOverOverlay/Panel/VSplitContainer"]
+layout_mode = 2
+text = "You submarine did not make it...."
+label_settings = SubResource("LabelSettings_fusaf")
+
+[node name="Label2" type="Label" parent="GameOverOverlay/Panel/VSplitContainer"]
+layout_mode = 2
+text = "Press R to restart"
+label_settings = SubResource("LabelSettings_frvln")
+horizontal_alignment = 1

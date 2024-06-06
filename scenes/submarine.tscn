@@ -34,12 +34,11 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p48oi"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msuud"]
 size = Vector2(3.72807, 9.2735)
 
 [sub_resource type="SystemFont" id="SystemFont_iluw7"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_7rwcn"]
 font = SubResource("SystemFont_iluw7")
@@ -49,8 +48,9 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bsgv"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_37lgv"]
+
 [node name="Submarine" type="CharacterBody2D" groups=["sub"]]
-collision_mask = 2
 script = ExtResource("1_q8pyt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -58,15 +58,10 @@ sprite_frames = SubResource("SpriteFrames_gr6h1")
 animation = &"idle"
 autoplay = "sinking"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(1.68, 4.32)
-shape = SubResource("CircleShape2D_p48oi")
-
-[node name="mine collider" type="Area2D" parent="."]
+[node name="ShipBody" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mine collider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipBody"]
 position = Vector2(5.96046e-07, -1.4)
 scale = Vector2(9.12, 9.36)
 shape = SubResource("RectangleShape2D_msuud")
@@ -79,13 +74,16 @@ offset_bottom = -22.0
 text = "0"
 label_settings = SubResource("LabelSettings_7rwcn")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MineDetector" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MineDetector"]
 scale = Vector2(25, 25)
 shape = SubResource("CircleShape2D_2bsgv")
 
-[connection signal="body_entered" from="mine collider" to="." method="_mine_detected"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_37lgv")
+
+[connection signal="area_entered" from="ShipBody" to="." method="_mine_collision"]
+[connection signal="area_entered" from="MineDetector" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="MineDetector" to="." method="_on_area_2d_area_exited"]
