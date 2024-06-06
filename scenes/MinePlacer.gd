@@ -6,6 +6,7 @@ extends Node
 @export var MinesToSpawn := 5
 @export var MinDistanceBetween := 1.0
 
+var _spawnPositions : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in MinesToSpawn:
@@ -16,6 +17,8 @@ func _ready():
 		mine.global_position = Vector2(xPos, yPos)
 		
 		add_child(mine)
+		
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
