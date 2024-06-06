@@ -15,6 +15,11 @@ run/main_scene="res://scenes/submarine.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
 [dotnet]
 
 project/assembly_name="SubMania"
