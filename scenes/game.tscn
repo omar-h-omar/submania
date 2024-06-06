@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vpviplnr5rjt"]
+[gd_scene load_steps=8 format=3 uid="uid://vpviplnr5rjt"]
 
 [ext_resource type="Texture2D" uid="uid://c83x22bx7vvti" path="res://assets/water.png" id="1_48axx"]
 [ext_resource type="PackedScene" path="res://scenes/mine.tscn" id="2_5ni10"]
 [ext_resource type="PackedScene" uid="uid://dgcpspdc4t04p" path="res://scenes/submarine.tscn" id="3_6ot8u"]
+[ext_resource type="PackedScene" uid="uid://dgim8u3m1mtf7" path="res://scenes/goal.tscn" id="4_c1hwd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab8ta"]
 texture = ExtResource("1_48axx")
@@ -1095,3 +1096,7 @@ collision_layer = 4
 position = Vector2(-2, 293)
 scale = Vector2(8, 8)
 shape = SubResource("WorldBoundaryShape2D_qkcv7")
+
+[node name="Goal" parent="." instance=ExtResource("4_c1hwd")]
+position = Vector2(598, -33)
+scale = Vector2(0.7, 0.7)
