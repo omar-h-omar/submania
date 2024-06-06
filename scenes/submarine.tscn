@@ -8,3 +8,5 @@ script = ExtResource("1_q8pyt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="MineDetector" type="Area2D" parent="."]
