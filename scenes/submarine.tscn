@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgcpspdc4t04p"]
+[gd_scene load_steps=9 format=3 uid="uid://dgcpspdc4t04p"]
 
 [ext_resource type="Script" path="res://scenes/submarine.gd" id="1_q8pyt"]
 [ext_resource type="Texture2D" uid="uid://c81x22cfhwcfw" path="res://assets/sub_uw.png" id="2_7us01"]
@@ -36,7 +36,10 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p48oi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msuud"]
+
 [node name="Submarine" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_q8pyt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -48,3 +51,12 @@ autoplay = "sinking"
 position = Vector2(-1, 0)
 scale = Vector2(1.68, 4.32)
 shape = SubResource("CircleShape2D_p48oi")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(9.12, 9.36)
+shape = SubResource("RectangleShape2D_msuud")
+
+[connection signal="body_entered" from="Area2D" to="." method="_mine_detected"]

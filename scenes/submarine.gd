@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-
-
 func _physics_process(delta):
 	var vertical_direction = Input.get_axis("up", "down")
 	if vertical_direction:
@@ -18,3 +16,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _mine_detected(body):
+	print("Mine Nearby!")
+	pass # Replace with function body.
