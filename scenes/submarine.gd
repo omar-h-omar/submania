@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+@onready var mines_nearby_label = $MinesNearbyLabel
 
 var _nearMineCount := 0
 
@@ -37,4 +38,10 @@ func on_level_start():
 func _on_area_2d_area_entered(area):
 	# Mine area
 	_nearMineCount += 1
+	mines_nearby_label.text = str(_nearMineCount)
 	
+
+
+func _on_area_2d_area_exited(area):
+	_nearMineCount -= 1
+	mines_nearby_label.text = str(_nearMineCount)

@@ -71,7 +71,7 @@ position = Vector2(5.96046e-07, -1.4)
 scale = Vector2(9.12, 9.36)
 shape = SubResource("RectangleShape2D_msuud")
 
-[node name="MinesNearby" type="Label" parent="."]
+[node name="MinesNearbyLabel" type="Label" parent="."]
 offset_left = 24.0
 offset_top = -105.0
 offset_right = 64.0
@@ -80,6 +80,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_7rwcn")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(25, 25)
@@ -87,3 +88,4 @@ shape = SubResource("CircleShape2D_2bsgv")
 
 [connection signal="body_entered" from="mine collider" to="." method="_mine_detected"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -9,6 +9,7 @@ position = Vector2(6, 0)
 gizmo_extents = 82.1
 
 [node name="MineCollider" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MineCollider"]
 scale = Vector2(3, 3)
