@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var _nearMineCount := 0
+
+func _ready():
+	on_level_start()
+
 func _physics_process(delta):
 	var vertical_direction = Input.get_axis("up", "down")
 	if vertical_direction:
@@ -20,3 +25,16 @@ func _physics_process(delta):
 func _mine_detected(body):
 	print("Mine Nearby!")
 	pass # Replace with function body.
+	
+func on_level_start():
+	pass
+	#_mines = get_tree().get_nodes_in_group("mines")
+	
+	#for mine in _mines:
+		#mine.
+
+
+func _on_area_2d_area_entered(area):
+	# Mine area
+	_nearMineCount += 1
+	
