@@ -1,13 +1,58 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgcpspdc4t04p"]
+[gd_scene load_steps=21 format=3 uid="uid://dgcpspdc4t04p"]
 
 [ext_resource type="Script" path="res://scenes/submarine.gd" id="1_q8pyt"]
 [ext_resource type="Texture2D" uid="uid://c81x22cfhwcfw" path="res://assets/sub_uw.png" id="2_7us01"]
+[ext_resource type="Texture2D" uid="uid://cf2uchcpopcbp" path="res://assets/sub_death1.png" id="2_iuu8h"]
+[ext_resource type="Texture2D" uid="uid://cnrmbu2sq3don" path="res://assets/sub_death2.png" id="3_nxwqb"]
 [ext_resource type="Texture2D" uid="uid://b0vpt7r5u1j1" path="res://assets/sub_1.png" id="3_wl5aq"]
+[ext_resource type="Texture2D" uid="uid://dipjq7bvanx10" path="res://assets/sub_death3.png" id="4_5g0im"]
 [ext_resource type="Texture2D" uid="uid://dkah2ijybubfb" path="res://assets/sub_2.png" id="4_xysxd"]
+[ext_resource type="Texture2D" uid="uid://br28mmr0s1oic" path="res://assets/sub_death4.png" id="5_4pjgn"]
 [ext_resource type="Texture2D" uid="uid://duay53c71fop4" path="res://assets/sub_3.png" id="5_55fc6"]
+[ext_resource type="Texture2D" uid="uid://cgyg5ip0eunw1" path="res://assets/sub_death5.png" id="6_7yatl"]
+[ext_resource type="Texture2D" uid="uid://b6u56jptp5f20" path="res://assets/sub_death6.png" id="7_61gpm"]
+[ext_resource type="Texture2D" uid="uid://cef14quxmyipp" path="res://assets/sub_death7.png" id="8_hvltp"]
+[ext_resource type="Texture2D" uid="uid://chvi7vvsio106" path="res://assets/sub_death8.png" id="9_lqqjl"]
+[ext_resource type="Texture2D" uid="uid://bykyyx2721scy" path="res://assets/sub_death9.png" id="10_f5qfj"]
+[ext_resource type="Texture2D" uid="uid://roce5okm6oql" path="res://assets/sub_death10.png" id="11_jy1d6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gr6h1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iuu8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nxwqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5g0im")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4pjgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7yatl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_61gpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hvltp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lqqjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f5qfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jy1d6")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_7us01")
@@ -53,8 +98,10 @@ script = ExtResource("1_q8pyt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gr6h1")
-animation = &"idle"
+animation = &"death"
 autoplay = "sinking"
+frame = 9
+frame_progress = 1.0
 
 [node name="ShipBody" type="Area2D" parent="."]
 collision_mask = 2
