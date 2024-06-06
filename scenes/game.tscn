@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://vpviplnr5rjt"]
 
 [ext_resource type="Texture2D" uid="uid://c83x22bx7vvti" path="res://assets/water.png" id="1_48axx"]
-[ext_resource type="PackedScene" uid="uid://q4qv4npf3jry" path="res://scenes/mine.tscn" id="2_5ni10"]
+[ext_resource type="PackedScene" uid="uid://enkvtyv512t" path="res://scenes/mine.tscn" id="2_5ni10"]
 [ext_resource type="PackedScene" uid="uid://dgcpspdc4t04p" path="res://scenes/submarine.tscn" id="3_6ot8u"]
-[ext_resource type="PackedScene" uid="uid://dgim8u3m1mtf7" path="res://scenes/goal.tscn" id="4_c1hwd"]
+[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_c1hwd"]
 [ext_resource type="Script" path="res://scenes/MinePlacer.gd" id="4_n0dgy"]
 
 [sub_resource type="GDScript" id="GDScript_ka5po"]
