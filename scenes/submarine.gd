@@ -46,4 +46,5 @@ func _on_area_2d_area_exited(area):
 # Mine Collision
 func _mine_collision(body):
 	%GameOverOverlay.visible = true
+	$AudioStreamPlayer2D.play()
 	LevelManager.gameover()
