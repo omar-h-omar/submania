@@ -9,7 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func next_level():
-	current_scene.queue_free()
+	if current_scene != null:
+		current_scene.free()
 	var nextLevel = ResourceLoader.load("res://scenes/game.tscn")
 	current_scene = nextLevel.instantiate()
 	get_tree().root.add_child(current_scene)

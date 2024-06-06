@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgcpspdc4t04p"]
+[gd_scene load_steps=11 format=3 uid="uid://dgcpspdc4t04p"]
 
 [ext_resource type="Script" path="res://scenes/submarine.gd" id="1_q8pyt"]
 [ext_resource type="Texture2D" uid="uid://c81x22cfhwcfw" path="res://assets/sub_uw.png" id="2_7us01"]
@@ -48,8 +48,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bsgv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_37lgv"]
-
 [node name="Submarine" type="CharacterBody2D" groups=["sub"]]
 script = ExtResource("1_q8pyt")
 
@@ -80,9 +78,6 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MineDetector"]
 scale = Vector2(25, 25)
 shape = SubResource("CircleShape2D_2bsgv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_37lgv")
 
 [connection signal="area_entered" from="ShipBody" to="." method="_mine_collision"]
 [connection signal="area_entered" from="MineDetector" to="." method="_on_area_2d_area_entered"]
