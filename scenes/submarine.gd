@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 @onready var mines_nearby_label = $MinesNearbyLabel
 @onready var mine_player = $MinePlayer
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 var _nearMineCount := 0
 
@@ -46,6 +47,7 @@ func _on_area_2d_area_exited(area):
 
 # Mine Collision
 func _mine_collision(body):
+	animated_sprite_2d.play("death")
 	%GameOverOverlay.visible = true
 	$AudioStreamPlayer2D.play()
 	LevelManager.gameover()
